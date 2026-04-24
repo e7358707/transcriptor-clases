@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcriptor de Clases</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=DM+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #0a0a0f; --card: #1a1a26; --border: #2a2a3e;
+      --accent: #7c6af7; --accent2: #f7a26a; --green: #4ade80;
+      --text: #e8e8f0; --muted: #6b6b8a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(124,106,247,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(247,162,106,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(124,106,247,0.15);
+      border: 1px solid rgba(124,106,247,0.3);
+      color: #a89cff;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .btn-download {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      padding: 0.9rem 2.2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-bottom: 1rem;
+    }
+
+    .btn-download:hover {
+      background: #9585ff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(124,106,247,0.4);
+    }
+
+    .meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .feature strong { display: block; color: var(--text); margin-bottom: 0.2rem; font-size: 0.8rem; }
+
+    .req {
+      font-size: 0.75rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .req strong { color: #a89cff; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="badge">ANDROID APK</div>
+  <h1>Transcriptor de Clases</h1>
+  <p class="desc">
+    Graba tus clases y genera un repaso completo con IA.<br>
+    Todo se guarda localmente en tu dispositivo.
+  </p>
+
+  <div class="features">
+    <div class="feature">
+      <strong>Grabacion continua</strong>
+      Se reinicia automaticamente si hay silencio
+    </div>
+    <div class="feature">
+      <strong>Repaso con IA</strong>
+      Genera resumen, conceptos y preguntas
+    </div>
+    <div class="feature">
+      <strong>100% local</strong>
+      Las grabaciones no salen de tu telefono
+    </div>
+    <div class="feature">
+      <strong>Espanol nativo</strong>
+      Reconocimiento en es-MX
+    </div>
+  </div>
+
+  <a href="transcriptor-clases.apk" class="btn-download">Descargar APK</a>
+  <div class="meta">Android 7.0 o superior requerido</div>
+
+  <hr class="divider">
+
+  <p class="req">
+    <strong>Instalacion:</strong><br>
+    Descarga el APK · Abre el archivo ·<br>
+    Permite instalacion de fuentes desconocidas si se solicita ·<br>
+    Acepta el permiso de microfono al iniciar la app
+  </p>
+</div>
+</body>
+</html>

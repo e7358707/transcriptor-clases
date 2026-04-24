@@ -1,0 +1,8 @@
+{
+  "appId": "com.transcriptor.clases",
+  "appName": "Transcriptor de Clases",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  }
+}

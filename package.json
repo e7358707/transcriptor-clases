@@ -1,0 +1,44 @@
+{
+  "name": "transcriptor-clases",
+  "version": "1.0.0",
+  "description": "Transcriptor de clases con reconocimiento de voz y repaso con IA",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev":          "electron .",
+    "build:win":    "electron-builder --win --x64",
+    "build:linux":  "electron-builder --linux --x64",
+    "android:init": "cap add android",
+    "android:sync": "cap sync android",
+    "android:open": "cap open android"
+  },
+  "build": {
+    "appId": "com.transcriptor.clases",
+    "productName": "Transcriptor de Clases",
+    "asar": false,
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "electron/main.js",
+      "www/**/*"
+    ],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "linux": {
+      "target": [{ "target": "AppImage", "arch": ["x64"] }],
+      "category": "Utility"
+    }
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0",
+    "@capacitor-community/speech-recognition": "^5.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli":     "^6.0.0",
+    "@capacitor/android": "^6.0.0",
+    "electron":           "^31.0.0",
+    "electron-builder":   "^24.13.0"
+  }
+}

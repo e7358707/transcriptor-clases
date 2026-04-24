@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcriptor de Clases</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="capacitor.js"></script>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Transcriptor de Clases</h1>
+    <p>GRABACION CONTINUA — REPASO CON IA</p>
+  </header>
+
+  <div class="compat-warning" id="compat-warning" style="display:none">
+    Tu navegador no soporta reconocimiento de voz. Usa Chrome o Edge en escritorio.
+  </div>
+
+  <div id="error-alert" class="alert"></div>
+  <div id="info-alert" class="alert alert-info"></div>
+
+  <div class="control-panel">
+    <div class="status-dot" id="status-dot"></div>
+    <div class="status-text" id="status-text">Listo para grabar</div>
+    <div>
+      <div class="timer" id="timer">00:00:00</div>
+      <div class="word-count" id="word-count">0 palabras</div>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn btn-primary" id="btn-start" onclick="startRecording()">Iniciar Clase</button>
+    <button class="btn btn-danger"   id="btn-stop"  onclick="stopRecording()"  disabled>Detener</button>
+    <button class="btn btn-secondary" id="btn-pause" onclick="togglePause()"   disabled>Pausar</button>
+    <button class="btn btn-secondary" id="btn-clear" onclick="clearTranscript()">Limpiar</button>
+    <button class="btn btn-secondary" onclick="copyTranscript()">Copiar</button>
+  </div>
+
+  <div class="transcript-section">
+    <div class="section-header">
+      <span class="section-title">Transcripcion en vivo</span>
+      <span class="live-badge" id="live-badge">
+        <span class="live-indicator"></span>
+        EN VIVO
+      </span>
+    </div>
+    <div id="transcript-box">
+      <span id="final-text"></span><span id="interim-text"></span>
+    </div>
+  </div>
+
+  <div class="api-section">
+    <label class="api-label">API KEY DE ANTHROPIC (opcional — para generar el repaso con IA)</label>
+    <div class="api-input-row">
+      <input type="password" class="api-input" id="api-key"
+             placeholder="sk-ant-api03-...  (se queda solo en tu dispositivo)" />
+    </div>
+    <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+      <button class="btn btn-success"   onclick="generateSummary()">Generar Repaso con IA</button>
+      <button class="btn btn-secondary" onclick="downloadTranscript()">Descargar Transcripcion</button>
+    </div>
+  </div>
+
+  <div class="result-section" id="result-section">
+    <div class="section-header">
+      <span class="section-title">Repaso generado por IA</span>
+      <button class="btn btn-secondary" onclick="copyResult()"
+              style="padding:0.4rem 0.8rem;font-size:0.75rem">Copiar</button>
+    </div>
+    <div id="result-content"></div>
+  </div>
+
+  <footer>
+    Funciona con Web Speech API · Compatible con Chrome y Edge<br>
+    La API Key nunca sale de tu dispositivo
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
